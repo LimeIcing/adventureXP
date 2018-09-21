@@ -6,7 +6,7 @@ public class Controller {
         boolean login = false;
         //secret code
         String sUsername = "admin", sPassword = "admin";
-        
+
         //checks if username and password is correct
         if (sUsername.equals(username) && sPassword.equals(password)) {
             login = true;
