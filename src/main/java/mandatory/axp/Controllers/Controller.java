@@ -1,5 +1,7 @@
 package mandatory.axp.Controllers;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+
 @org.springframework.stereotype.Controller
 public class Controller {
     //Missing data from project, wait to continued!!!
@@ -14,4 +16,13 @@ public class Controller {
         }
         return login;
     }
+
+    @RequestMapping("/activities")
+    public String activitiesPage()
+    {
+
+
+        return "activities";
+    }
+
 }
