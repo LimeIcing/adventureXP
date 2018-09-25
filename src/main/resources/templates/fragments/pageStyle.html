@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<body>
+<div id="nav_top" th:fragment="nav_top">
+    <nav>
+    <ul>
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li style="float: right;"><a href="admin/admin.html">Admin</a></li>
+    </ul>
+    </nav>
+</div>
+<nav>
+
+</nav>
+
+</body>
+<style th:fragment="style">
+    body {
+
+    }
+
+    .left {
+        float: left;
+    }
+
+    .wrapper {
+        margin: 0 auto;
+        width: 75%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    }
+
+     nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    nav li {
+        float: left;
+    }
+
+    nav li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    /* Change the link color to #111 (black) on hover */
+   nav li a:hover {
+        background-color: #111;
+    }
+
+    .content {
+        padding: 0px 5px;
+        min-height: 500px;
+
+    }
+
+    /* tables */
+    .activities {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .activities td, .activities th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    .activities tr:nth-child(even){background-color: #f2f2f2;}
+
+    .activities tr:hover {background-color: #ddd;}
+
+    .activities th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    /* Activities  */
+
+    .picture	{
+        background-color: #aaa;
+        height: 200px;
+        width: 30%;
+    }
+
+    .activityname {
+        background-color: #bbb;
+        width: 70%;
+        height: 200px;
+    }
+
+    .details {
+        background-color: #ccc;
+        width: 70%;
+        height: 200px;
+    }
+
+    .booking {
+        background-color: #ddd;
+        width: 30%;
+        height: 200px;
+    }
+
+    td a {
+        margin-left: 5px;
+    }
+</style>
+</html>
