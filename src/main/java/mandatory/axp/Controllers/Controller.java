@@ -1,5 +1,6 @@
 package mandatory.axp.Controllers;
 
+@org.springframework.stereotype.Controller
 public class Controller {
     //Missing data from project, wait to continued!!!
     public boolean loginMethod(String username, String password) {
