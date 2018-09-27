@@ -2,13 +2,17 @@ package mandatory.axp.Controllers;
 
 import mandatory.axp.Models.ActivityModel;
 import mandatory.axp.Models.Repositories.ActivityRepository;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @org.springframework.stereotype.Controller
 public class Controller {
+
+    ActivityRepository activityRepository = new ActivityRepository();
     //Missing data from project, wait to continued!!!
     public boolean loginMethod(String username, String password) {
         boolean login = false;
@@ -58,6 +62,24 @@ public class Controller {
     {
 
         return "/activity";
+    }
+
+    private ActivityModel getSpecificActivity(int id)
+    {
+        SqlRowSet rs = activityRepository.getSpecificView(id);
+
+        return factoryController.getSpecificView(rs);
+    }
+
+    @RequestMapping(value="/deleteActivity",method = RequestMethod.GET)
+    public String deleteActivity(@RequestParam("id") int id, Model model)
+    {
+        model.addAttribute("viewModel", getSpecificActivity(id));
+
+        //bruges til søg
+        model.addAttribute("tempModel", factoryController.createDoctor());
+
+        return "requestDeleteActivity";
     }
 
 }
