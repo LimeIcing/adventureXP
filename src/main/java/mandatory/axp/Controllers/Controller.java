@@ -46,11 +46,18 @@ public class Controller {
         return "index";
     }
 
-    @RequestMapping("/activities")
+    @RequestMapping(value = "/activities", method = RequestMethod.GET)
     public String activitiesPage()
     {
 
         return "/activities";
+    }
+
+    @RequestMapping(value = "/activity", method = RequestMethod.GET)
+    public String activityPage()
+    {
+
+        return "/activity";
     }
 
 }
