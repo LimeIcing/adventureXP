@@ -8,7 +8,7 @@ public class ActivityModel {
     public ActivityModel() {
     }
 
-    public ActivityModel(String name, int durationMin, int minAge, int minHeightCm, float price) {
+    public ActivityModel(int id ,String name, int durationMin, int minAge, int minHeightCm, float price) {
         this.name = name;
         this.durationMin = durationMin;
         this.minAge = minAge;

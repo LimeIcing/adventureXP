@@ -1,10 +1,13 @@
 package mandatory.axp.Controllers;
 
+<<<<<<< HEAD
 import mandatory.axp.Models.ActivityModel;
 import mandatory.axp.Models.Repositories.ActivityRepository;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+=======
+>>>>>>> 86ac1a77b7bfb53eb1ad090b014fdc1b86671e66
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,27 +29,9 @@ public class Controller {
         return login;
     }
 
-    private ActivityRepository activityRepository = new ActivityRepository();
-
     @RequestMapping("/")
     public String homePage()
     {
-        return "index";
-    }
-
-    @RequestMapping(value = "/create", method = RequestMethod.GET)
-    public String createActivity(Model model)
-    {
-        model.addAttribute("activity", new ActivityModel());
-
-        return "create";
-    }
-
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String createActivity(@ModelAttribute ActivityModel activityModel)
-    {
-        activityRepository.create(activityModel);
-
         return "index";
     }
 
@@ -63,6 +48,7 @@ public class Controller {
 
         return "/activity";
     }
+<<<<<<< HEAD
 
     private ActivityModel getSpecificActivity(int id)
     {
@@ -82,4 +68,6 @@ public class Controller {
         return "requestDeleteActivity";
     }
 
+=======
+>>>>>>> 86ac1a77b7bfb53eb1ad090b014fdc1b86671e66
 }
