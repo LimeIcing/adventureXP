@@ -2,7 +2,11 @@ package mandatory.axp.Models.Repositories;
 
 import mandatory.axp.Models.ActivityModel;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Repository;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 public class ActivityRepository{
@@ -15,6 +19,15 @@ public class ActivityRepository{
         sql = "";
 
         
+    }
+    public void getActivities(ActivityModel activityModel){
+        List<ActivityModel> activities = new ArrayList<>();
+        sql= "SELECT * FROM students";
+        SqlRowSet rs =jdbc.queryForRowSet(sql);
+
+        while (rs.next()){
+            activities.add(new ActivityModel(rs.getInt(1)))
+        }
     }
 
 
