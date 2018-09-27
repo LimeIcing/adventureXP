@@ -39,6 +39,6 @@ public class AdminController {
     {
         activityRepository.create(activityModel);
 
-        return "index";
+        return "/admin";
     }
 }

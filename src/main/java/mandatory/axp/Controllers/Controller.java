@@ -31,6 +31,12 @@ public class Controller {
         return "index";
     }
 
+    @RequestMapping("/index")
+    public String backToHome()
+    {
+        return "index";
+    }
+
     @RequestMapping(value = "/activities", method = RequestMethod.GET)
     public String activitiesPage()
     {
@@ -44,7 +50,7 @@ public class Controller {
 
         return "/activity";
     }
-
+/*
     private ActivityModel getSpecificActivity(int id)
     {
         SqlRowSet rs = activityRepository.getSpecificActivityModelBasedOnId(id);
@@ -61,6 +67,6 @@ public class Controller {
         model.addAttribute("tempModel", factoryController.createDoctor());
 
         return "requestDeleteActivity";
-    }
+    }*/
 
 }

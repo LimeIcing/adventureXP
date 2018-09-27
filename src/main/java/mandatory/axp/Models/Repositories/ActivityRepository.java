@@ -36,7 +36,7 @@ public class ActivityRepository {
                 activityModel.getMinHeightCm() + "', '" +
                 activityModel.getPrice() +  "')";
 
-        jdbc.update(sql);
+        jdbc.execute(sql);
     }
 
     public void update(ActivityModel activityModel, int id) {
