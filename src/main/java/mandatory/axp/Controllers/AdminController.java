@@ -10,11 +10,28 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class AdminController {
+    ActivityRepository activityRepository = new ActivityRepository();
 
     @RequestMapping(value = "/admin/students", method = RequestMethod.GET)
     public String adminStudents (Model model) {
         model.addAttribute("students", ActivityRepository.());
 
         return "/admin/students";
+    }
+
+    @RequestMapping(value = "admin/create", method = RequestMethod.GET)
+    public String createActivity(Model model)
+    {
+        model.addAttribute("activity", new ActivityModel());
+
+        return "admin/create";
+    }
+
+    @RequestMapping(value = "admin/create", method = RequestMethod.POST)
+    public String createActivity(@ModelAttribute ActivityModel activityModel)
+    {
+        activityRepository.create(activityModel);
+
+        return "index";
     }
 }
