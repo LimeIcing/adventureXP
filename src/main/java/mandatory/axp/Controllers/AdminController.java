@@ -14,7 +14,6 @@ import java.util.ArrayList;
 
 @Controller
 public class AdminController {
-    ActivityRepository activityRepository = new ActivityRepository();
 
     @Autowired
     private ActivityRepository AR = new ActivityRepository();
@@ -37,7 +36,7 @@ public class AdminController {
     @RequestMapping(value = "admin/create", method = RequestMethod.POST)
     public String createActivity(@ModelAttribute ActivityModel activityModel)
     {
-        activityRepository.create(activityModel);
+        AR.create(activityModel);
 
         return "/admin";
     }
