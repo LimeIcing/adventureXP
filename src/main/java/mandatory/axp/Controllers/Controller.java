@@ -47,9 +47,9 @@ public class Controller {
 
     private ActivityModel getSpecificActivity(int id)
     {
-        SqlRowSet rs = activityRepository.getSpecificView(id);
+        SqlRowSet rs = activityRepository.getSpecificActivityModelBasedOnId(id);
 
-        return factoryController.getSpecificView(rs);
+        return .getSpecificView(rs);
     }
 
     @RequestMapping(value="/deleteActivity",method = RequestMethod.GET)

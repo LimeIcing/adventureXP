@@ -52,4 +52,19 @@ public class ActivityRepository {
 
         jdbc.update(sql);
     }
+
+    public SqlRowSet getSpecificActivityModelBasedOnId(int id)
+    {
+        String sqlQuery = "SELECT * FROM ACTIVITY as a " +
+                "" +
+                "" +
+                "" + "WHERE activityId = " + id + ";";
+    return queryForRowset (sqlQuery);
+    }
+
+    private SqlRowSet queryForRowset(String sqlQuery)
+    {
+        return jdbc.queryForRowSet(sqlQuery);
+    }
+
 }
