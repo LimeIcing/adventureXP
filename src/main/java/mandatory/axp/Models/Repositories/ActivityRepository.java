@@ -48,7 +48,7 @@ public class ActivityRepository {
     }
 
 
-    public void delete(int id) {
+    public void deleteActivity(int id) {
         sql = "delete from Activity where activityId = " + id;
 
         jdbc.update(sql);
@@ -66,6 +66,14 @@ public class ActivityRepository {
     private SqlRowSet queryForRowset(String sqlQuery)
     {
         return jdbc.queryForRowSet(sqlQuery);
+    }
+
+    public ActivityModel createActivityModelFromRowSet (SqlRowSet rowSet)
+    {
+        ActivityModel activityModel = new ActivityModel(rowSet.getInt(1), rowSet.getString(2), rowSet.getInt(3),
+                rowSet.getInt(4), rowSet.getInt(5), rowSet.getFloat(6));
+
+        return activityModel;
     }
 
 }
