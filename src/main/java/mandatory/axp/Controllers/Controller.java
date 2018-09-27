@@ -50,7 +50,7 @@ public class Controller {
     public String activitiesPage()
     {
 
-        return "activities";
+        return "/activities";
     }
 
 }
