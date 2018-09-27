@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 @Controller
 public class AdminController {
+    ActivityRepository activityRepository = new ActivityRepository();
 
     @Autowired
     private ActivityRepository AR = new ActivityRepository();
@@ -23,5 +24,21 @@ public class AdminController {
         model.addAttribute("activities", AR.getActivities());
 
         return "/admin/admin";
+    }
+
+    @RequestMapping(value = "admin/create", method = RequestMethod.GET)
+    public String createActivity(Model model)
+    {
+        model.addAttribute("activity", new ActivityModel());
+
+        return "admin/create";
+    }
+
+    @RequestMapping(value = "admin/create", method = RequestMethod.POST)
+    public String createActivity(@ModelAttribute ActivityModel activityModel)
+    {
+        activityRepository.create(activityModel);
+
+        return "index";
     }
 }
