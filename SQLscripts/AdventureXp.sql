@@ -2,6 +2,10 @@ drop database if exists adventureXp;
 create database adventureXp;
 use adventureXp;
 
+DROP USER IF EXISTS 'groot'@'localhost';
+CREATE USER 'groot'@'localhost' IDENTIFIED BY 'iamgroot';
+GRANT ALL ON * TO 'groot'@'localhost';
+
 create table Activity (
 activityId int primary key auto_increment,
 name varchar(45),
