@@ -13,14 +13,15 @@ public class ActivityRepository {
     private JdbcTemplate jdbc = new JdbcTemplate();
     private String sql;
 
-    public void getActivities(ActivityModel activityModel){
+    public List<ActivityModel> getActivities(){
         List<ActivityModel> activities = new ArrayList<>();
-        sql= "SELECT * FROM students";
+        sql= "SELECT * FROM activity";
         SqlRowSet rs =jdbc.queryForRowSet(sql);
 
         while (rs.next()){
-            activities.add(new ActivityModel(rs.getInt(1)));
+            activities.add(new ActivityModel(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getFloat(6)));
         }
+        return activities;
     }
 
     public void create(ActivityModel activityModel) {

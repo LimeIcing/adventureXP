@@ -1,6 +1,7 @@
 package mandatory.axp.Models;
 
 public class ActivityModel {
+    private int id;
     private String name;
     private int durationMin, minAge, minHeightCm;
     private float price;
@@ -9,11 +10,20 @@ public class ActivityModel {
     }
 
     public ActivityModel(int id ,String name, int durationMin, int minAge, int minHeightCm, float price) {
+        this.id = id;
         this.name = name;
         this.durationMin = durationMin;
         this.minAge = minAge;
         this.minHeightCm = minHeightCm;
         this.price = price;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
