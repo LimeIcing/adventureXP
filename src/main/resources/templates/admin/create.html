@@ -17,19 +17,19 @@
 			
 			<form id="form" th:action="@{/admin/create}" method="POST">
 				<p>Aktivitet Navn</p>
-				<input type="text" name="name"> 
+				<input type="text" name="name" required>
 
 				<p>Varighed</p>
-				<input type="text" name="duration">
+				<input type="text" name="duration" required>
 
 				<p>Min. Alder</p>
-				<input type="text" name="minAge">
+				<input type="number" name="minAge" required>
 
 				<p>Min. Højde</p>
-				<input type="text" name="minHeight">
+				<input type="number" name="minHeight" required>
 
 				<p>Pris</p>
-				<input type="text" name="price">
+				<input type="number" name="price" required>
 
 				<br><br>
 				<input type="submit" value="Opret">
