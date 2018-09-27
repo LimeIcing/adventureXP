@@ -30,15 +30,15 @@ public class Controller {
         return "index";
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.GET)
+    @RequestMapping(value = "admin/create", method = RequestMethod.GET)
     public String createActivity(Model model)
     {
         model.addAttribute("activity", new ActivityModel());
 
-        return "create";
+        return "admin/create";
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @RequestMapping(value = "admin/create", method = RequestMethod.POST)
     public String createActivity(@ModelAttribute ActivityModel activityModel)
     {
         activityRepository.create(activityModel);
