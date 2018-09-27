@@ -3,16 +3,16 @@ package mandatory.axp.Models;
 public class ActivityModel {
     private int id;
     private String name;
-    private int durationMin, minAge, minHeightCm;
-    private float price;
+    private int duration, minAge, minHeightCm;
+    private double price;
 
     public ActivityModel() {
     }
 
-    public ActivityModel(int id ,String name, int durationMin, int minAge, int minHeightCm, float price) {
+    public ActivityModel(int id ,String name, int duration, int minAge, int minHeightCm, double price) {
         this.id = id;
         this.name = name;
-        this.durationMin = durationMin;
+        this.duration = duration;
         this.minAge = minAge;
         this.minHeightCm = minHeightCm;
         this.price = price;
@@ -34,12 +34,12 @@ public class ActivityModel {
         this.name = name;
     }
 
-    public int getDurationMin() {
-        return durationMin;
+    public int getDuration() {
+        return duration;
     }
 
-    public void setDurationMin(int durationMin) {
-        this.durationMin = durationMin;
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 
     public int getMinAge() {
@@ -58,7 +58,7 @@ public class ActivityModel {
         this.minHeightCm = minHeightCm;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
