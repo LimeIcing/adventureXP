@@ -23,7 +23,7 @@ public class ActivityRepository {
         SqlRowSet rs =jdbc.queryForRowSet(sql);
 
         while (rs.next()) {
-            activities.add(new ActivityModel(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getFloat(6)));
+            activities.add(new ActivityModel(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getDouble(6)));
         }
         return activities;
     }
@@ -31,7 +31,7 @@ public class ActivityRepository {
     public void create(ActivityModel activityModel) {
         sql = "insert into Activity(name, duration, minAge, minHeight, price) values('" +
                 activityModel.getName() + "', '" +
-                activityModel.getDurationMin() + "', '" +
+                activityModel.getDuration() + "', '" +
                 activityModel.getMinAge() + "', '" +
                 activityModel.getMinHeightCm() + "', '" +
                 activityModel.getPrice() +  "')";
@@ -42,7 +42,7 @@ public class ActivityRepository {
     public void update(ActivityModel activityModel, int id) {
         sql = "update Activity set name = '" +
                 activityModel.getName() + "', duration = '" +
-                activityModel.getDurationMin() + "', minAge = '" +
+                activityModel.getDuration() + "', minAge = '" +
                 activityModel.getMinAge() + "', minHeight = '" +
                 activityModel.getMinHeightCm() + "', price = '" +
                 activityModel.getPrice() +

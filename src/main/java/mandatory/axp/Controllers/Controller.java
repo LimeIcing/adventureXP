@@ -67,6 +67,7 @@ public class Controller {
         model.addAttribute("tempModel", factoryController.createDoctor());
 
         return "requestDeleteActivity";
-    }*/
 
+    }
+*/
 }
