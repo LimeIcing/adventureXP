@@ -44,7 +44,7 @@ public class Controller {
 
         return "/activity";
     }
-
+/*
     private ActivityModel getSpecificActivity(int id)
     {
         SqlRowSet rs = activityRepository.getSpecificActivityModelBasedOnId(id);
@@ -62,5 +62,5 @@ public class Controller {
 
         return "requestDeleteActivity";
     }
-
+*/
 }
