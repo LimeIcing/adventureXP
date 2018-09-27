@@ -1,21 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 	<meta charset="UTF-8">
 	<title>Aktiviteter</title>
-	<link rel="stylesheet" href="fragments/style.css">
 </head>
 <body>
 	
 	<div class="wrapper">
 
-		<nav>
-			<ul>
-				<li><a class="active" href="index.html">Home</a></li>
-				<li><a href="activities.html">Activities</a></li>
-				<li style="float: right;"><a href="admin/admin.html">Admin</a></li>
-			</ul>
-		</nav>
+		<div th:include="fragments/pageStyle :: nav_top"></div>
 		
 		<div class="content">
 			<div class="picture left"></div>
@@ -28,4 +21,5 @@
 	</div>
 	
 </body>
+<style th:include="fragments/pageStyle :: style"></style>
 </html>
