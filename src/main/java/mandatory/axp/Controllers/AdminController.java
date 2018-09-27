@@ -18,7 +18,7 @@ public class AdminController {
     @Autowired
     private ActivityRepository AR = new ActivityRepository();
 
-    @RequestMapping(value = "/admin/admin", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/", method = RequestMethod.GET)
     public String adminStudents (Model model) {
         model.addAttribute("activities", AR.getActivities());
 
