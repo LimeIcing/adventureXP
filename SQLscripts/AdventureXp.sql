@@ -11,8 +11,8 @@ activityId int primary key auto_increment,
 name varchar(45),
 duration int,
 minAge int,
-minHeight double,
-price int
+minHeight int,
+price double
 );
 create table Equipment(
 equipmentId int primary key auto_increment,

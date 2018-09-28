@@ -38,6 +38,6 @@ public class AdminController {
     {
         AR.create(activityModel);
 
-        return "admin/admin";
+        return "redirect:/admin/";
     }
 }
