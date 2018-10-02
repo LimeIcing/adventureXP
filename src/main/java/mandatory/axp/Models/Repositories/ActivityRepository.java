@@ -50,16 +50,6 @@ public class ActivityRepository {
 
         jdbc.update(sql);
     }
-public ActivityModel getId (int id){
-        sql = "SELECT * FROM activity WHERE activityId = " + id + ";";
-        SqlRowSet rs = jdbc.queryForRowSet(sql);
-        rs.next();
-
-        ActivityModel activityModel = new ActivityModel(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getDouble(6));
-
-        return activityModel;
-}
-
 
     public void deleteActivity(int id) {
         sql = "delete from Activity where activityId = " + id;
@@ -68,10 +58,7 @@ public ActivityModel getId (int id){
     }
 
     public ActivityModel getSpecificActivityModelBasedOnId(int id) {
-        String sqlQuery = "SELECT * FROM Activity as a " +
-                "" +
-                "" +
-                "" + "WHERE activityId = " + id + ";";
+        String sqlQuery = "SELECT * FROM Activity WHERE activityId = " + id + ";";
         SqlRowSet rowSet = jdbc.queryForRowSet(sqlQuery);
 
         rowSet.next();

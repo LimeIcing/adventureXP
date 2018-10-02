@@ -18,7 +18,7 @@ public class AdminController {
 
     @RequestMapping(value = "/admin/editActivity/{id}", method = RequestMethod.GET)
     public String edit(Model model, @PathVariable(value = "id") int id, ActivityModel activityModel) {
-        model.addAttribute("activity", AR.getId(id));
+        model.addAttribute("activity", AR.getSpecificActivityModelBasedOnId(id));
 
         return "/admin/editActivity";
     }
