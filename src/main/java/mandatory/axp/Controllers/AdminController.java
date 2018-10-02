@@ -4,9 +4,7 @@ import mandatory.axp.Models.ActivityModel;
 import mandatory.axp.Models.Repositories.ActivityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
 
 import java.util.ArrayList;
@@ -39,5 +37,20 @@ public class AdminController {
         AR.create(activityModel);
 
         return "redirect:/admin/";
+    }
+
+    @RequestMapping(value= "admin/delete", method =RequestMethod.GET)
+    public String deleteActivity(@RequestParam("id") int id, Model model)
+    {
+        activityRepository.getSpecificActivityModelBasedOnId(id);
+        return "admin/delete";
+    }
+
+    @RequestMapping(value= "admin/delete/{id}", method=RequestMethod.POST)
+    public String deleteActivity(Model model, @PathVariable int id)
+    {
+        activityRepository.deleteActivity(id);
+
+        return "admin/delete";
     }
 }
