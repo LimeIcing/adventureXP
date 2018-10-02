@@ -41,6 +41,8 @@ duration int,
 numOfParticipants int,
 instructor varchar(45),
 notes varchar(255)
+foreign key (customerId) references Customer(customerId),
+foreign key (activityId) references Activity(activityId)
 );
 
 -- Dummy Data to fill up the table
