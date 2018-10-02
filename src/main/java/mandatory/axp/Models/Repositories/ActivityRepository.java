@@ -60,10 +60,7 @@ public class ActivityRepository {
 
     public SqlRowSet getSpecificActivityModelBasedOnId(int id)
     {
-        String sqlQuery = "SELECT * FROM ACTIVITY as a " +
-                "" +
-                "" +
-                "" + "WHERE activityId = " + id + ";";
+        String sqlQuery = "SELECT * FROM ACTIVITY WHERE activityId = " + id + ";";
     return queryForRowset (sqlQuery);
     }
 
@@ -72,12 +69,13 @@ public class ActivityRepository {
         return jdbc.queryForRowSet(sqlQuery);
     }
 
-    public ActivityModel createActivityModelFromRowSet (SqlRowSet rowSet)
+    public ActivityModel createSpecificActivityModelFromRowSet (SqlRowSet rowSet)
     {
         ActivityModel activityModel = new ActivityModel(rowSet.getInt(1), rowSet.getString(2), rowSet.getInt(3),
                 rowSet.getInt(4), rowSet.getInt(5), rowSet.getFloat(6));
 
         return activityModel;
     }
+
 
 }
