@@ -26,7 +26,8 @@
 					<td th:text="${activity.name}"></td>
 					<td th:text="${activity.price}"></td>
 					<td th:text="${activity.duration}"></td>
-					<td><a href="#">Slet</a><a th:href="${'/admin/edit/' + activity.id}">Rediger</a></td>
+					<td><a th:href="${'/admin/delete/' + activity.id}">Slet</a>
+						<a th:href="${'/admin/edit/' + activity.id}">Rediger</a></td>
 				</tr>
 			</table>
 		</div>

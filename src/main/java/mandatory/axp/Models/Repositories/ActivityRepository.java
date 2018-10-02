@@ -59,12 +59,13 @@ public class ActivityRepository {
     }
 
     public ActivityModel getSpecificActivityModelBasedOnId(int id) {
-        String sqlQuery = "SELECT * FROM ACTIVITY as a " +
+        String sqlQuery = "SELECT * FROM Activity as a " +
                 "" +
                 "" +
                 "" + "WHERE activityId = " + id + ";";
         SqlRowSet rowSet = jdbc.queryForRowSet(sqlQuery);
 
+        rowSet.next();
         ActivityModel activityModel = new ActivityModel(rowSet.getInt(1), rowSet.getString(2), rowSet.getInt(3),
                 rowSet.getInt(4), rowSet.getInt(5), rowSet.getFloat(6));
     return activityModel;

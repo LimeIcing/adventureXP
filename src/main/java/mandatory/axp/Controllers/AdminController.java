@@ -39,18 +39,19 @@ public class AdminController {
         return "redirect:/admin/";
     }
 
-    @RequestMapping(value= "admin/delete", method =RequestMethod.GET)
-    public String deleteActivity(@RequestParam("id") int id, Model model)
+    @RequestMapping(value= "admin/delete/{id}", method =RequestMethod.GET)
+    public String deleteActivity(@PathVariable(value = "id") int id, Model model)
     {
-        activityRepository.getSpecificActivityModelBasedOnId(id);
+        model.addAttribute("activity", AR.getSpecificActivityModelBasedOnId(id));
+
         return "admin/delete";
     }
 
     @RequestMapping(value= "admin/delete/{id}", method=RequestMethod.POST)
     public String deleteActivity(Model model, @PathVariable int id)
     {
-        activityRepository.deleteActivity(id);
+        AR.deleteActivity(id);
 
-        return "admin/delete";
+        return "redirect:/admin/";
     }
 }
