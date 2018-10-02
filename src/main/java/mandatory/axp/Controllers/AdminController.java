@@ -12,12 +12,11 @@ import java.util.ArrayList;
 
 @Controller
 public class AdminController {
-    ActivityRepository activityRepository = new ActivityRepository();
 
     @Autowired
     private ActivityRepository AR = new ActivityRepository();
 
-    @RequestMapping(value = "/admin/admin", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/", method = RequestMethod.GET)
     public String adminStudents (Model model) {
         model.addAttribute("activities", AR.getActivities());
 
@@ -35,9 +34,9 @@ public class AdminController {
     @RequestMapping(value = "admin/create", method = RequestMethod.POST)
     public String createActivity(@ModelAttribute ActivityModel activityModel)
     {
-        activityRepository.create(activityModel);
+        AR.create(activityModel);
 
-        return "index";
+        return "redirect:/admin/";
     }
 
     @RequestMapping(value= "admin/delete", method =RequestMethod.GET)

@@ -11,14 +11,16 @@ activityId int primary key auto_increment,
 name varchar(45),
 duration int,
 minAge int,
-minHeight double,
-price int
+minHeight int,
+price double
 );
+
 create table Equipment(
 equipmentId int primary key auto_increment,
 name varchar(45),
 isAvailable boolean
 );
+
 CREATE TABLE Employee (
     employeeId INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(45),
@@ -38,4 +40,10 @@ bookingDate date,
 duration int,
 numOfParticipants int,
 instructor varchar(45),
-notes varchar(255));
+notes varchar(255)
+);
+
+-- Dummy Data to fill up the table
+insert into Activity (name, duration, minAge, minHeight, price)
+	value 	('Go-Kart',45, 13, 120, 200),
+			('Mini Golf', 30, 5, 50, 60);
