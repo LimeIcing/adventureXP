@@ -2,6 +2,7 @@ package mandatory.axp.Controllers;
 
 import mandatory.axp.Models.ActivityModel;
 import mandatory.axp.Models.Repositories.ActivityRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @org.springframework.stereotype.Controller
 public class Controller {
+    @Autowired
+    private ActivityRepository AR = new ActivityRepository();
 
     ActivityRepository activityRepository = new ActivityRepository();
     //Missing data from project, wait to continued!!!
@@ -38,9 +41,9 @@ public class Controller {
     }
 
     @RequestMapping(value = "/activities", method = RequestMethod.GET)
-    public String activitiesPage()
+    public String activitiesPage(Model model)
     {
-
+        model.addAttribute("activities", AR.getActivities());
         return "/activities";
     }
 

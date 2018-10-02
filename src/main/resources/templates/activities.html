@@ -20,29 +20,11 @@
 					<th>Varighed</th>
 					<th>Bookning</th>
 				</tr>
-				<tr>
-					<td><a href="activity">Go-Kart</a></td>
-					<td>40 kr;-</td>
-					<td>2 Timer</td>
-					<td><a href="#">Book</a></td>
-				</tr>
-				<tr>
-					<td>Go-kart</td>
-					<td>40 kr;-</td>
-					<td>2 Timer</td>
-					<td><a href="#">Book</a></td>
-				</tr>
-				<tr>
-					<td>Go-kart</td>
-					<td>40 kr;-</td>
-					<td>2 Timer</td>
-					<td><a href="#">Book</a></td>
-				</tr>
-				<tr>
-					<td>Go-kart</td>
-					<td>40 kr;-</td>
-					<td>2 Timer</td>
-					<td><a href="#">Book</a></td>
+				<tr th:each="activity : ${activities}">
+					<td th:text="${activity.name}"></td>
+					<td th:text="${activity.price}"></td>
+					<td th:text="${activity.duration}"></td>
+					<td><a href="#">Slet</a><a th:href="${'/admin/edit/' + activity.id}">Rediger</a></td>
 				</tr>
 			</table>
 		</div>
