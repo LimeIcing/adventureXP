@@ -39,3 +39,10 @@ duration int,
 numOfParticipants int,
 instructor varchar(45),
 notes varchar(255));
+
+
+
+-- Dummy Data to fill up thr tabel
+insert into Activity (name, duration, minAge, minHeight, price)
+	value 	('Go-Kart',45, 13, 120, 200),
+			('Mini Golf', 30, 5, 50, 60);
