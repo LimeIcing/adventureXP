@@ -1,7 +1,5 @@
 package mandatory.axp.Models;
 
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
-
 public class UserModel {
 
     private String name;
