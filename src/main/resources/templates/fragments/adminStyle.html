@@ -12,11 +12,14 @@
 </div>
 </body>
 <style th:fragment="style">
-    body {
-        background-color: white;
-        color: #111111;
-    }
+    /* (*) notation means its global, sets the font to a specific font */
+    *{font-family: "intel-clear","tahoma",Helvetica,"helvetica",Arial,sans-serif;}
 
+    /*Sets the background of the body, translates to the whole page*/
+    body {
+        background-color: #f3f3f3;
+        color: #111;
+    }
     .left {
         float: left;
     }
@@ -61,7 +64,6 @@
 
     /* tables */
     .activities {
-        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
         border-collapse: collapse;
         width: 100%;
     }
