@@ -5,14 +5,14 @@
     <title>Slet produkt</title>
 </head>
 <body>
-<!-- imports the fragment sidenav, from the adminStyle page. -->
+
 <div class="wrapper">
 
     <div th:include="fragments/adminStyle :: nav_top"></div>
     <div class="content">
-    <!-- displays the values of the product you are deleting -->
+
     <h1>Slet Produkt</h1>
-    <!-- when post is called, ProductController delete method is call to delete product with ean -->
+
     <form id="form" th:object="${activity}" th:action="@{/admin/delete/} + ${id}" method="POST">
         <div class="grid-container" style="grid-template-columns: auto auto">
             <label>ID: </label>
@@ -39,6 +39,6 @@
 </div>
 </div>
 </body>
-<!-- Imports the fragment containing the style for the page -->
+
 <style th:include="fragments/adminStyle :: style"></style>
 </html>
