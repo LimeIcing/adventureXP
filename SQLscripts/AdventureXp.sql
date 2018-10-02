@@ -39,8 +39,10 @@ bookingId int primary key auto_increment,
 bookingDate date,
 duration int,
 numOfParticipants int,
+customerId int,
+activityId int,
 instructor varchar(45),
-notes varchar(255)
+notes varchar(255),
 foreign key (customerId) references Customer(customerId),
 foreign key (activityId) references Activity(activityId)
 );
