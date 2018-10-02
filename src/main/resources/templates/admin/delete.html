@@ -15,20 +15,26 @@
     <!-- when post is called, ProductController delete method is call to delete product with ean -->
     <form id="form" th:object="${activity}" th:action="@{/admin/delete/} + ${id}" method="POST">
         <div class="grid-container" style="grid-template-columns: auto auto">
-            <label>ID</label>
+            <label>ID: </label>
             <label th:text="${activity.id}"></label>
-            <label>Navn</label>
+            <br>
+            <label>Navn: </label>
             <label th:text="${activity.name}"></label>
-            <label>Varighed</label>
+            <br>
+            <label>Varighed: </label>
             <label th:text="${activity.duration}" ></label>
-            <label>Minimumsalder</label>
+            <br>
+            <label>Minimumsalder: </label>
             <label th:text="${activity.minAge}"></label>
-            <label>Minimumshøjde</label>
+            <br>
+            <label>Minimumshøjde: </label>
             <label th:text="${activity.minHeightCm}"></label>
-            <label>Pris</label>
+            <br>
+            <label>Pris: </label>
             <label th:text="${'kr. ' + activity.price}"></label>
         </div>
-        <input type="submit" value="Slet"/>
+        <hr>
+        <input type="submit" style="width: 10%;font-size: 20px;" value="Slet"/>
     </form>
 </div>
 </div>
