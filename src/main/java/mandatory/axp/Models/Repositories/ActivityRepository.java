@@ -58,23 +58,14 @@ public class ActivityRepository {
         jdbc.update(sql);
     }
 
-    public SqlRowSet getSpecificActivityModelBasedOnId(int id) {
+    public ActivityModel getSpecificActivityModelBasedOnId(int id) {
         String sqlQuery = "SELECT * FROM ACTIVITY as a " +
                 "" +
                 "" +
                 "" + "WHERE activityId = " + id + ";";
-    return queryForRowset (sqlQuery);
-    }
-
-    private SqlRowSet queryForRowset(String sqlQuery) {
-        return jdbc.queryForRowSet(sqlQuery);
-    }
-
-    public ActivityModel createActivityModelFromRowSet (SqlRowSet rowSet) {
+        SqlRowSet rowSet = jdbc.queryForRowSet(sqlQuery);
         ActivityModel activityModel = new ActivityModel(rowSet.getInt(1), rowSet.getString(2), rowSet.getInt(3),
                 rowSet.getInt(4), rowSet.getInt(5), rowSet.getFloat(6));
-
-        return activityModel;
+    return activityModel;
     }
-
 }
