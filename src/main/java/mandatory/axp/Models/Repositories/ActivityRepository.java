@@ -17,7 +17,7 @@ public class ActivityRepository {
 
     private String sql;
 
-    public List<ActivityModel> getActivities(){
+    public List<ActivityModel> getActivities() {
         List<ActivityModel> activities = new ArrayList<>();
         sql= "SELECT * FROM Activity";
         SqlRowSet rs =jdbc.queryForRowSet(sql);
@@ -67,26 +67,16 @@ public ActivityModel getId (int id){
         jdbc.update(sql);
     }
 
-    public SqlRowSet getSpecificActivityModelBasedOnId(int id)
-    {
-        String sqlQuery = "SELECT * FROM ACTIVITY as a " +
+    public ActivityModel getSpecificActivityModelBasedOnId(int id) {
+        String sqlQuery = "SELECT * FROM Activity as a " +
                 "" +
                 "" +
                 "" + "WHERE activityId = " + id + ";";
-    return queryForRowset (sqlQuery);
-    }
+        SqlRowSet rowSet = jdbc.queryForRowSet(sqlQuery);
 
-    private SqlRowSet queryForRowset(String sqlQuery)
-    {
-        return jdbc.queryForRowSet(sqlQuery);
-    }
-
-    public ActivityModel createActivityModelFromRowSet (SqlRowSet rowSet)
-    {
+        rowSet.next();
         ActivityModel activityModel = new ActivityModel(rowSet.getInt(1), rowSet.getString(2), rowSet.getInt(3),
                 rowSet.getInt(4), rowSet.getInt(5), rowSet.getFloat(6));
-
-        return activityModel;
+    return activityModel;
     }
-
 }

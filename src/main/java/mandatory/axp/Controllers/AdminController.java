@@ -45,10 +45,28 @@ public class AdminController {
 
         return "redirect:/admin/";
     }
+
     @RequestMapping(value = "/admin/", method = RequestMethod.GET)
     public String adminStudents (Model model) {
         model.addAttribute("activities", AR.getActivities());
 
         return "/admin/admin";
     }
+
+    @RequestMapping(value= "admin/delete/{id}", method =RequestMethod.GET)
+    public String deleteActivity(@PathVariable(value = "id") int id, Model model)
+    {
+        model.addAttribute("activity", AR.getSpecificActivityModelBasedOnId(id));
+
+        return "admin/delete";
+    }
+
+    @RequestMapping(value= "admin/delete/{id}", method=RequestMethod.POST)
+    public String deleteActivity(Model model, @PathVariable int id)
+    {
+        AR.deleteActivity(id);
+
+        return "redirect:/admin/";
+    }
+
 }

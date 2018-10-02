@@ -1,18 +1,20 @@
-package src.main.java.mandatory.axp.Models;
+package mandatory.axp.Models;
 
-public class EmployModel
+
+
+public class EmployeeModel
 {
     //variabler
     private String name;
     private String password;
 
     //constructors
-    public EmployModel()
+    public EmployeeModel()
     {
 
     }
 
-    public EmployModel(String name, String password) {
+    public EmployeeModel(String name, String password) {
         this.name = name;
         this.password = password;
     }

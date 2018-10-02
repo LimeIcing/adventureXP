@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Slet produkt</title>
+</head>
+<body>
+<!-- imports the fragment sidenav, from the adminStyle page. -->
+<div th:include="fragments/adminStyle :: nav_top"></div>
+<div id="content">
+    <!-- displays the values of the product you are deleting -->
+    <h1>Slet Produkt</h1>
+    <!-- when post is called, ProductController delete method is call to delete product with ean -->
+    <form id="form" th:object="${activity}" th:action="@{/admin/delete/} + ${id}" method="POST">
+        <div class="grid-container" style="grid-template-columns: auto auto">
+            <label>ID</label>
+            <label th:text="${activity.id}"></label>
+            <label>Navn</label>
+            <label th:text="${activity.name}"></label>
+            <label>Varighed</label>
+            <label th:text="${activity.duration}" ></label>
+            <label>Minimumsalder</label>
+            <label th:text="${activity.minAge}"></label>
+            <label>Minimumshøjde</label>
+            <label th:text="${activity.minHeightCm}"></label>
+            <label>Pris</label>
+            <label th:text="${'kr. ' + activity.price}"></label>
+        </div>
+        <input type="submit" value="Slet"/>
+    </form>
+</div>
+</body>
+<!-- Imports the fragment containing the style for the page -->
+<style th:include="fragments/adminStyle :: style"></style>
+</style>
+</html>
