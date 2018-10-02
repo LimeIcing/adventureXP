@@ -50,6 +50,15 @@ public class ActivityRepository {
 
         jdbc.update(sql);
     }
+public ActivityModel getId (int id){
+        sql = "SELECT * FROM activity WHERE activityId = " + id + ";";
+        SqlRowSet rs = jdbc.queryForRowSet(sql);
+        rs.next();
+
+        ActivityModel activityModel = new ActivityModel(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getDouble(6));
+
+        return activityModel;
+}
 
 
     public void deleteActivity(int id) {

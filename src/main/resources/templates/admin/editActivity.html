@@ -14,21 +14,21 @@
 		<div class="content">
 			<h1>Rediger Aktivitet</h1>
 			
-			<form action="">
+			<form th:object="${activity}" th:action="@{/admin/editActivity/} + ${id}" method="POST">
 				<p>Aktivitet Navn</p>
-				<input type="text" name="name" value="value"> 
+				<input type="text" name="name" th:value="${activity.name}" th:field="*{name}">
 
 				<p>Varighed</p>
-				<input type="text" name="duration" value="value">
+				<input type="text" name="duration" value="value" th:value="${activity.duration}" th:field="*{duration}">
 
 				<p>Min. Alder</p>
-				<input type="text" name="minAge" value="value">
+				<input type="text" name="minAge" th:value="${activity.minAge}" th:field="*{minAge}">
 
 				<p>Min. Højde</p>
-				<input type="text" name="minHeight" value="value">
+				<input type="text" name="minHeight" th:value="${activity.minHeightCm}" th:field="*{minHeightCm}">
 
 				<p>Pris</p>
-				<input type="text" name="price" value="value">
+				<input type="text" name="price" th:value="${activity.price}" th:field="*{price}">
 
 				<br><br>
 				<input type="submit" value="Rediger">

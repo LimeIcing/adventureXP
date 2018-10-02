@@ -62,7 +62,7 @@ public class ActivityModel {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

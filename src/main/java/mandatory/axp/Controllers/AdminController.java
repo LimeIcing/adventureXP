@@ -4,9 +4,7 @@ import mandatory.axp.Models.ActivityModel;
 import mandatory.axp.Models.Repositories.ActivityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
 
 import java.util.ArrayList;
@@ -18,11 +16,18 @@ public class AdminController {
     @Autowired
     private ActivityRepository AR = new ActivityRepository();
 
-    @RequestMapping(value = "/admin/", method = RequestMethod.GET)
-    public String adminStudents (Model model) {
-        model.addAttribute("activities", AR.getActivities());
+    @RequestMapping(value = "/admin/editActivity/{id}", method = RequestMethod.GET)
+    public String edit(Model model, @PathVariable(value = "id") int id, ActivityModel activityModel) {
+        model.addAttribute("activity", AR.getId(id));
 
-        return "/admin/admin";
+        return "/admin/editActivity";
+    }
+    @RequestMapping(value = "/admin/editActivity/{id}", method = RequestMethod.POST)
+    public String edit(@PathVariable(value = "id") int id, ActivityModel activityModel)
+    {
+        AR.update(activityModel, id);
+
+        return "redirect:/admin/";
     }
 
     @RequestMapping(value = "admin/create", method = RequestMethod.GET)
@@ -39,5 +44,11 @@ public class AdminController {
         AR.create(activityModel);
 
         return "redirect:/admin/";
+    }
+    @RequestMapping(value = "/admin/", method = RequestMethod.GET)
+    public String adminStudents (Model model) {
+        model.addAttribute("activities", AR.getActivities());
+
+        return "/admin/admin";
     }
 }
