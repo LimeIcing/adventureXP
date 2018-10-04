@@ -22,12 +22,12 @@ public class BookingModel {
         this.bookingID = bookingID;
     }
 
-    public void setActivity(ActivityModel activity) {
-        this.activity = activity;
+    public void setActivityID(int activityID) {
+        this.activityID = activityID;
     }
 
-    public void setUser(CustomerModel user) {
-        this.user = user;
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
     }
 
     public void setDate(Date date) {
@@ -39,12 +39,12 @@ public class BookingModel {
         return bookingID;
     }
 
-    public ActivityModel getActivity() {
-        return activity;
+    public int getActivityID() {
+        return activityID;
     }
 
-    public CustomerModel getUser() {
-        return user;
+    public int getCustomerID() {
+        return customerID;
     }
 
     public Date getDate() {

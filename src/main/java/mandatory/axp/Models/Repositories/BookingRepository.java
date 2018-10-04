@@ -38,10 +38,10 @@ public class BookingRepository {
                 "values('" +
                 bookingModel.getBookingID() + "', '" +
                 bookingModel.getDate() + "', '" +
-                bookingModel.getActivity().getDuration() + "', '" +
                 1 + "', '" +
-                bookingModel.getUser().getID() + "', '" +
-                bookingModel.getActivity().getId() + "', '" +
+                1 + "', '" +
+                bookingModel.getCustomerID() + "', '" +
+                bookingModel.getActivityID() + "', '" +
                 "Henning" + "', '" +
                 "Det her er en note HAhaa glhf" +  "')";
 
@@ -71,7 +71,7 @@ public class BookingRepository {
         SqlRowSet rowSet = jdbc.queryForRowSet(sqlQuery);
 
         rowSet.next();
-        BookingModel bookingModel = new BookingModel(rowSet.getInt(1), new CustomerModel(rowSet.getInt(5)), rowSet.getInt(6),
+        BookingModel bookingModel = new BookingModel(rowSet.getInt(1), rowSet.getInt(5), rowSet.getInt(6),
                 rowSet.getDate(2));
         return bookingModel;
     }
