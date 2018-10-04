@@ -19,26 +19,27 @@ public class BookingRepository {
 
     private String sql;
 
-//    public List<BookingModel> getBookings(){
-//        List<BookingModel> bookings = new ArrayList<>();
-//        sql= "SELECT * FROM Booking";
-//        SqlRowSet rs =jdbc.queryForRowSet(sql);
-//
-//        while (rs.next()) {
-//            bookings.add(new Booking(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getDouble(6)));
-//        }
-//        return activities;
-//    }
+    public List<BookingModel> getBookings(){
+        List<BookingModel> bookings = new ArrayList<>();
+        sql= "SELECT * FROM Booking";
+        SqlRowSet rs =jdbc.queryForRowSet(sql);
+
+        while (rs.next()) {
+            bookings.add(
+                    new BookingModel(
+                            rs.getInt(1), rs.getInt(5), rs.getInt(6), rs.getDate(2)));
+        }
+        return bookings;
+    }
 
     public void create(BookingModel bookingModel) {
         sql = "insert into Booking(" +
-                "bookingId, bookingDate, duration, numOfParticipants, customerId," +
+                "bookingId, bookingDate, numOfParticipants, customerId," +
                 "activityId, instructor, notes) " +
                 "" +
                 "values('" +
                 bookingModel.getBookingID() + "', '" +
                 bookingModel.getDate() + "', '" +
-                1 + "', '" +
                 1 + "', '" +
                 bookingModel.getCustomerID() + "', '" +
                 bookingModel.getActivityID() + "', '" +
