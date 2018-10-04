@@ -29,16 +29,18 @@ public class BookingRepository {
 //        return activities;
 //    }
 
-    public void create(ActivityModel activityModel) {
-        sql = "insert into Activity(name, duration, minAge, minHeight, price) values('" +
-                activityModel.getName() + "', '" +
-                activityModel.getDuration() + "', '" +
-                activityModel.getMinAge() + "', '" +
-                activityModel.getMinHeightCm() + "', '" +
-                activityModel.getPrice() +  "')";
-
-        jdbc.execute(sql);
-    }
+//    public void create(BookingModel bookingModel) {
+//        sql = "insert into Booking(" +
+//                "bookingId, bookingDate, duration, numOfParticipants, customerId," +
+//                ") values('" +
+////                bookingModel.getBookingID() + "', '" +
+////                bookingModel.getActivity().getDuration() + "', '" +
+////                bookingModel.getMinAge() + "', '" +
+////                bookingModel.getMinHeightCm() + "', '" +
+////                bookingModel.getPrice() +  "')";
+//
+//        jdbc.execute(sql);
+//    }
 
     public void update(ActivityModel activityModel, int id) {
         sql = "update Activity set name = '" +
@@ -50,5 +52,21 @@ public class BookingRepository {
                 "' where activityId = " + id;
 
         jdbc.update(sql);
+    }
+
+    public void deleteActivity(int id) {
+        sql = "delete from Activity where activityId = " + id;
+
+        jdbc.update(sql);
+    }
+
+    public ActivityModel getSpecificActivityModelBasedOnId(int id) {
+        String sqlQuery = "SELECT * FROM Activity WHERE activityId = " + id + ";";
+        SqlRowSet rowSet = jdbc.queryForRowSet(sqlQuery);
+
+        rowSet.next();
+        ActivityModel activityModel = new ActivityModel(rowSet.getInt(1), rowSet.getString(2), rowSet.getInt(3),
+                rowSet.getInt(4), rowSet.getInt(5), rowSet.getFloat(6));
+        return activityModel;
     }
 }
