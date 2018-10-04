@@ -51,13 +51,13 @@ public class ActivityRepository {
         jdbc.update(sql);
     }
 
-    public void deleteActivity(int id) {
+    public void delete(int id) {
         sql = "delete from Activity where activityId = " + id;
 
         jdbc.update(sql);
     }
 
-    public ActivityModel getSpecificActivityModelBasedOnId(int id) {
+    public ActivityModel getActivityById(int id) {
         String sqlQuery = "SELECT * FROM Activity WHERE activityId = " + id + ";";
         SqlRowSet rowSet = jdbc.queryForRowSet(sqlQuery);
 

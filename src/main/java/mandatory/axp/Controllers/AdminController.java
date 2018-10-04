@@ -7,8 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
 
-import java.util.ArrayList;
-
 
 @Controller
 public class AdminController {
@@ -18,7 +16,7 @@ public class AdminController {
 
     @RequestMapping(value = "/admin/editActivity/{id}", method = RequestMethod.GET)
     public String edit(Model model, @PathVariable(value = "id") int id, ActivityModel activityModel) {
-        model.addAttribute("activity", AR.getSpecificActivityModelBasedOnId(id));
+        model.addAttribute("activity", AR.getActivityById(id));
 
         return "/admin/editActivity";
     }
@@ -56,7 +54,7 @@ public class AdminController {
     @RequestMapping(value= "admin/delete/{id}", method =RequestMethod.GET)
     public String deleteActivity(@PathVariable(value = "id") int id, Model model)
     {
-        model.addAttribute("activity", AR.getSpecificActivityModelBasedOnId(id));
+        model.addAttribute("activity", AR.getActivityById(id));
 
         return "admin/delete";
     }
@@ -64,7 +62,7 @@ public class AdminController {
     @RequestMapping(value= "admin/delete/{id}", method=RequestMethod.POST)
     public String deleteActivity(Model model, @PathVariable int id)
     {
-        AR.deleteActivity(id);
+        AR.delete(id);
 
         return "redirect:/admin/";
     }
