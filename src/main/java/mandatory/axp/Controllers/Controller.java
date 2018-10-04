@@ -2,6 +2,7 @@ package mandatory.axp.Controllers;
 
 import mandatory.axp.Models.ActivityModel;
 import mandatory.axp.Models.Repositories.ActivityRepository;
+import mandatory.axp.Models.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.ui.Model;
@@ -31,8 +32,20 @@ public class Controller {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model)
     {
-       // model.addAllAttributes("Username")
+       model.addAttribute("userModel",new UserModel());
+
         return "login";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(Model model, UserModel userModel)
+    {
+        if(loginMethod(userModel.getName(), userModel.getPassword()))
+        {
+            return "index";
+        }
+
+        return "/calendar";
     }
 
     @RequestMapping("/")
