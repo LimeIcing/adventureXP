@@ -67,13 +67,12 @@ public class BookingRepository {
         jdbc.update(sql);
     }
 
-    public BookingModel getSpecificActivityModelBasedOnId(int id) {
+    public BookingModel getBookingById(int id) {
         String sqlQuery = "SELECT * FROM Booking WHERE customerId = " + id + ";";
         SqlRowSet rowSet = jdbc.queryForRowSet(sqlQuery);
 
         rowSet.next();
-        BookingModel bookingModel = new BookingModel(rowSet.getInt(1), rowSet.getInt(5), rowSet.getInt(6),
+        return new BookingModel(rowSet.getInt(1), rowSet.getInt(5), rowSet.getInt(6),
                 rowSet.getDate(2));
-        return bookingModel;
     }
 }
