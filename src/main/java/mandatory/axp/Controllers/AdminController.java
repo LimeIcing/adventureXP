@@ -12,18 +12,18 @@ import org.springframework.stereotype.Controller;
 public class AdminController {
 
     @Autowired
-    private ActivityRepository AR = new ActivityRepository();
+    private ActivityRepository activityRepository = new ActivityRepository();
 
     @RequestMapping(value = "/admin/editActivity/{id}", method = RequestMethod.GET)
     public String edit(Model model, @PathVariable(value = "id") int id, ActivityModel activityModel) {
-        model.addAttribute("activity", AR.getActivityById(id));
+        model.addAttribute("activity", activityRepository.getActivityById(id));
 
         return "/admin/editActivity";
     }
 
     @RequestMapping(value = "/admin/editActivity/{id}", method = RequestMethod.POST)
     public String edit(@PathVariable(value = "id") int id, ActivityModel activityModel) {
-        AR.update(activityModel, id);
+        activityRepository.update(activityModel, id);
 
         return "redirect:/admin/";
     }
@@ -37,28 +37,28 @@ public class AdminController {
 
     @RequestMapping(value = "admin/create", method = RequestMethod.POST)
     public String createActivity(@ModelAttribute ActivityModel activityModel) {
-        AR.create(activityModel);
+        activityRepository.create(activityModel);
 
         return "redirect:/admin/";
     }
 
     @RequestMapping(value = "/admin/", method = RequestMethod.GET)
     public String adminStudents (Model model) {
-        model.addAttribute("activities", AR.getActivities());
+        model.addAttribute("activities", activityRepository.getActivities());
 
         return "/admin/admin";
     }
 
     @RequestMapping(value= "admin/delete/{id}", method =RequestMethod.GET)
     public String deleteActivity(@PathVariable(value = "id") int id, Model model) {
-        model.addAttribute("activity", AR.getActivityById(id));
+        model.addAttribute("activity", activityRepository.getActivityById(id));
 
         return "admin/delete";
     }
 
     @RequestMapping(value= "admin/delete/{id}", method=RequestMethod.POST)
     public String deleteActivity(Model model, @PathVariable int id) {
-        AR.delete(id);
+        activityRepository.delete(id);
 
         return "redirect:/admin/";
     }
