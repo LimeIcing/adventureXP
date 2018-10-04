@@ -37,7 +37,6 @@ name varchar(45)
 create table Booking(
 bookingId int primary key auto_increment,
 bookingDate date,
-duration int,
 numOfParticipants int,
 customerId int,
 activityId int,
