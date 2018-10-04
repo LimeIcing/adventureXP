@@ -71,8 +71,7 @@ public class BookingRepository {
         SqlRowSet rowSet = jdbc.queryForRowSet(sqlQuery);
 
         rowSet.next();
-        BookingModel bookingModel = new BookingModel(rowSet.getInt(1), rowSet.getInt(5), rowSet.getInt(6),
+        return new BookingModel(rowSet.getInt(1), rowSet.getInt(5), rowSet.getInt(6),
                 rowSet.getDate(2));
-        return bookingModel;
     }
 }
