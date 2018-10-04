@@ -11,10 +11,29 @@
 		<div th:include="fragments/pageStyle :: nav_top"></div>
 		
 		<div class="content">
+
 			<div class="picture left"></div>
-			<div class="activityname left"></div>
-			<div class="details left"></div>
-			<div class="booking left"></div>
+			<div class="activityname left" th:text="${activity.name}"></div>
+			<div class="details left">
+                <div class="grid-container" style="grid-template-columns: 120px auto">
+
+                <label>Navn: </label>
+                <label th:text="${activity.name}"></label>
+
+                <label>Varighed: </label>
+                <label th:text="${activity.duration}" ></label>
+
+                <label>Minimumsalder: </label>
+                <label th:text="${activity.minAge}"></label>
+
+                <label>Minimumshøjde: </label>
+                <label th:text="${activity.minHeightCm}"></label>
+
+                <label>Pris: </label>
+                <label th:text="${'kr. ' + activity.price}"></label>
+            </div>
+			</div>
+			<div class="booking left"><a th:href="${'/Booking/' + activity.id}"></a></div>
 			
 		</div>
 
