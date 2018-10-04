@@ -43,18 +43,6 @@ public class BookingRepository {
         jdbc.execute(sql);
     }
 
-//    public void update(ActivityModel activityModel, int id) {
-//        sql = "update Activity set name = '" +
-//                activityModel.getName() + "', duration = '" +
-//                activityModel.getDuration() + "', minAge = '" +
-//                activityModel.getMinAge() + "', minHeight = '" +
-//                activityModel.getMinHeightCm() + "', price = '" +
-//                activityModel.getPrice() +
-//                "' where activityId = " + id;
-//
-//        jdbc.update(sql);
-//    }
-
     public void delete(int id) {
         sql = "delete from Booking where bookingId = " + id;
 
