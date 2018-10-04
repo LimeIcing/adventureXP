@@ -28,6 +28,13 @@ public class Controller {
         return login;
     }
 
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(Model model)
+    {
+       // model.addAllAttributes("Username")
+        return "login";
+    }
+
     @RequestMapping("/")
     public String homePage()
     {
