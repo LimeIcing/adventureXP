@@ -13,16 +13,16 @@ public class CustomerModel {
         this.password = password;
     }
 
-    public CustomerModel(String ID) {
+    public CustomerModel(int ID) {
 
-
+        this.ID = ID;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getID() {
+    public int getID() {
         return ID;
     }
 

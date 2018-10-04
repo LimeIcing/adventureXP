@@ -5,15 +5,15 @@ import java.util.Date;
 public class BookingModel {
 
     private int bookingID;
-    private ActivityModel activity;
-    private CustomerModel user;
+    private int activityID;
+    private int customerID;
     private Date date;
 
-    public BookingModel(int bookingID, ActivityModel activity, CustomerModel user, Date date) {
+    public BookingModel(int bookingID, int activityID, int customerID, Date date) {
 
         this.bookingID = bookingID;
-        this.activity = activity;
-        this.user = user;
+        this.activityID = activityID;
+        this.customerID = customerID;
         this.date = date;
     }
 
