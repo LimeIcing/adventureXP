@@ -1,6 +1,6 @@
 package mandatory.axp.Models;
 
-public class UserModel {
+public class CustomerModel {
 
     private String name;
     private String ID;

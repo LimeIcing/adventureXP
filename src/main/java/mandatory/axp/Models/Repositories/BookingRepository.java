@@ -29,18 +29,18 @@ public class BookingRepository {
 //        return activities;
 //    }
 
-//    public void create(BookingModel bookingModel) {
-//        sql = "insert into Booking(" +
-//                "bookingId, bookingDate, duration, numOfParticipants, customerId," +
-//                ") values('" +
-////                bookingModel.getBookingID() + "', '" +
-////                bookingModel.getActivity().getDuration() + "', '" +
-////                bookingModel.getMinAge() + "', '" +
-////                bookingModel.getMinHeightCm() + "', '" +
-////                bookingModel.getPrice() +  "')";
-//
-//        jdbc.execute(sql);
-//    }
+    public void create(BookingModel bookingModel) {
+        sql = "insert into Booking(" +
+                "bookingId, bookingDate, duration, numOfParticipants, customerId," +
+                ") values('" +
+                bookingModel.getBookingID() + "', '" +
+                bookingModel.getActivity().getDuration() + "', '" +
+                bookingModel.getMinAge() + "', '" +
+                bookingModel.getMinHeightCm() + "', '" +
+                bookingModel.getPrice() +  "')";
+
+        jdbc.execute(sql);
+    }
 
     public void update(ActivityModel activityModel, int id) {
         sql = "update Activity set name = '" +
