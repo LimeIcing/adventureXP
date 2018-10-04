@@ -1,23 +1,19 @@
 package mandatory.axp.Controllers;
 
-import mandatory.axp.Models.ActivityModel;
 import mandatory.axp.Models.Repositories.ActivityRepository;
 import mandatory.axp.Models.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @org.springframework.stereotype.Controller
 public class Controller {
 
     @Autowired
-    private ActivityRepository AR = new ActivityRepository();
+    private ActivityRepository activityRepository = new ActivityRepository();
 
-    ActivityRepository activityRepository = new ActivityRepository();
     //Missing data from project, wait to continued!!!
     public boolean loginMethod(String username, String password) {
         boolean login = false;
@@ -59,13 +55,13 @@ public class Controller {
 
     @RequestMapping(value = "/activities", method = RequestMethod.GET)
     public String activitiesPage(Model model) {
-        model.addAttribute("activities", AR.getActivities());
+        model.addAttribute("activities", activityRepository.getActivities());
         return "/activities";
     }
 
     @RequestMapping(value = "/activity/{id}", method = RequestMethod.GET)
     public String activityPage(@PathVariable(value = "id") int id, Model model) {
-        model.addAttribute("activity", AR.getActivityById(id));
+        model.addAttribute("activity", activityRepository.getActivityById(id));
         return "/activity";
     }
 }
