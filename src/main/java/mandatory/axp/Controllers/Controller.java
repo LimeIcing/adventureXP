@@ -32,18 +32,15 @@ public class Controller {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(Model model)
-    {
+    public String login(Model model) {
        model.addAttribute("userModel",new UserModel());
 
         return "login";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(Model model, UserModel userModel)
-    {
-        if(loginMethod(userModel.getName(), userModel.getPassword()))
-        {
+    public String login(Model model, UserModel userModel) {
+        if(loginMethod(userModel.getName(), userModel.getPassword())) {
             return "index";
         }
 
@@ -51,14 +48,12 @@ public class Controller {
     }
 
     @RequestMapping("/")
-    public String homePage()
-    {
+    public String homePage() {
         return "index";
     }
 
     @RequestMapping("/index")
-    public String backToHome()
-    {
+    public String backToHome() {
         return "index";
     }
 
