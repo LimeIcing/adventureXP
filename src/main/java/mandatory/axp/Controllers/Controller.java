@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @org.springframework.stereotype.Controller
 public class Controller {
+
     @Autowired
     private ActivityRepository AR = new ActivityRepository();
 
@@ -30,8 +31,7 @@ public class Controller {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(Model model)
-    {
+    public String login(Model model) {
        // model.addAllAttributes("Username")
         return "login";
     }
@@ -49,16 +49,14 @@ public class Controller {
     }
 
     @RequestMapping(value = "/activities", method = RequestMethod.GET)
-    public String activitiesPage(Model model)
-    {
+    public String activitiesPage(Model model) {
         model.addAttribute("activities", AR.getActivities());
         return "/activities";
     }
 
     @RequestMapping(value = "/activity/{id}", method = RequestMethod.GET)
-    public String activityPage(@PathVariable(value = "id") int id, Model model)
-    {
-        model.addAttribute("activity", AR.getSpecificActivityModelBasedOnId(id));
+    public String activityPage(@PathVariable(value = "id") int id, Model model) {
+        model.addAttribute("activity", AR.getActivityById(id));
         return "/activity";
     }
 }
