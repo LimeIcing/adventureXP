@@ -1,8 +1,6 @@
 package mandatory.axp.Models.Repositories;
 
-import mandatory.axp.Models.ActivityModel;
 import mandatory.axp.Models.BookingModel;
-import mandatory.axp.Models.CustomerModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -25,19 +23,15 @@ public class BookingRepository {
         SqlRowSet rs =jdbc.queryForRowSet(sql);
 
         while (rs.next()) {
-            bookings.add(
-                    new BookingModel(
-                            rs.getInt(1), rs.getInt(5), rs.getInt(6), rs.getDate(2)));
+            bookings.add(new BookingModel(rs.getInt(1), rs.getInt(5), rs.getInt(6), rs.getDate(2)));
         }
+
         return bookings;
     }
 
     public void create(BookingModel bookingModel) {
         sql = "insert into Booking(" +
-                "bookingId, bookingDate, numOfParticipants, customerId," +
-                "activityId, instructor, notes) " +
-                "" +
-                "values('" +
+                "bookingId, bookingDate, numOfParticipants, customerId, activityId, instructor, notes) values('" +
                 bookingModel.getBookingID() + "', '" +
                 bookingModel.getDate() + "', '" +
                 1 + "', '" +
@@ -61,18 +55,17 @@ public class BookingRepository {
 //        jdbc.update(sql);
 //    }
 
-    public void deleteActivity(int id) {
+    public void delete(int id) {
         sql = "delete from Booking where bookingId = " + id;
 
         jdbc.update(sql);
     }
 
     public BookingModel getBookingById(int id) {
-        String sqlQuery = "SELECT * FROM Booking WHERE customerId = " + id + ";";
+        String sqlQuery = "SELECT * FROM Booking WHERE customerId = " + id;
         SqlRowSet rowSet = jdbc.queryForRowSet(sqlQuery);
 
         rowSet.next();
-        return new BookingModel(rowSet.getInt(1), rowSet.getInt(5), rowSet.getInt(6),
-                rowSet.getDate(2));
+        return new BookingModel(rowSet.getInt(1), rowSet.getInt(5), rowSet.getInt(6), rowSet.getDate(2));
     }
 }
