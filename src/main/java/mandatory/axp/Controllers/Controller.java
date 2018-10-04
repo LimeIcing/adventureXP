@@ -5,6 +5,7 @@ import mandatory.axp.Models.Repositories.ActivityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,8 +54,9 @@ public class Controller {
         return "/activities";
     }
 
-    @RequestMapping(value = "/activity", method = RequestMethod.GET)
-    public String activityPage() {
+    @RequestMapping(value = "/activity/{id}", method = RequestMethod.GET)
+    public String activityPage(@PathVariable(value = "id") int id, Model model) {
+        model.addAttribute("activity", AR.getActivityById(id));
         return "/activity";
     }
 }
