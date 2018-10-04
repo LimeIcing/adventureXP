@@ -23,7 +23,8 @@ public class ActivityRepository {
         SqlRowSet rs =jdbc.queryForRowSet(sql);
 
         while (rs.next()) {
-            activities.add(new ActivityModel(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getDouble(6)));
+            activities.add(new ActivityModel(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4),
+                    rs.getInt(5), rs.getDouble(6)));
         }
         return activities;
     }
@@ -62,8 +63,8 @@ public class ActivityRepository {
         SqlRowSet rowSet = jdbc.queryForRowSet(sqlQuery);
 
         rowSet.next();
-        ActivityModel activityModel = new ActivityModel(rowSet.getInt(1), rowSet.getString(2), rowSet.getInt(3),
-                rowSet.getInt(4), rowSet.getInt(5), rowSet.getFloat(6));
+        ActivityModel activityModel = new ActivityModel(rowSet.getInt(1), rowSet.getString(2),
+                rowSet.getInt(3), rowSet.getInt(4), rowSet.getInt(5), rowSet.getFloat(6));
     return activityModel;
     }
 }
