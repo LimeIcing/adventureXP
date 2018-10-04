@@ -1,12 +1,12 @@
 package mandatory.axp.Models;
 
-public class UserModel {
+public class CustomerModel {
 
     private String name;
     private String ID;
     private String password;
 
-    public UserModel(String name, String ID, String password) {
+    public CustomerModel(String name, String ID, String password) {
 
         this.name = name;
         this.ID = ID;

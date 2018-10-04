@@ -61,25 +61,4 @@ public class Controller {
         model.addAttribute("activity", AR.getSpecificActivityModelBasedOnId(id));
         return "/activity";
     }
-/*
-    private ActivityModel getSpecificActivity(int id)
-    {
-        SqlRowSet rs = activityRepository.getSpecificActivityModelBasedOnId(id);
-
-        return .getSpecificView(rs);
-    }
-
-    @RequestMapping(value="/deleteActivity",method = RequestMethod.GET)
-    public String deleteActivity(@RequestParam("id") int id, Model model)
-    {
-        model.addAttribute("viewModel", getSpecificActivity(id));
-
-        //bruges til søg
-        model.addAttribute("tempModel", factoryController.createDoctor());
-
-        return "requestDeleteActivity";
-
-    }
-    */
-
 }
