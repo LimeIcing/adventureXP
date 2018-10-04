@@ -65,5 +65,4 @@ public class ActivityModel {
     public void setPrice(double price) {
         this.price = price;
     }
-
 }
