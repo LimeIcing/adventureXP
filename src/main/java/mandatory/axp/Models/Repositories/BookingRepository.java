@@ -66,7 +66,7 @@ public class BookingRepository {
         jdbc.update(sql);
     }
 
-    public BookingModel getSpecificActivityModelBasedOnId(int id) {
+    public BookingModel getBookingById(int id) {
         String sqlQuery = "SELECT * FROM Booking WHERE customerId = " + id + ";";
         SqlRowSet rowSet = jdbc.queryForRowSet(sqlQuery);
 
