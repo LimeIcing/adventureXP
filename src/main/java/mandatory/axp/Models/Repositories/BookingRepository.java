@@ -2,6 +2,7 @@ package mandatory.axp.Models.Repositories;
 
 import mandatory.axp.Models.ActivityModel;
 import mandatory.axp.Models.BookingModel;
+import mandatory.axp.Models.CustomerModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -32,41 +33,46 @@ public class BookingRepository {
     public void create(BookingModel bookingModel) {
         sql = "insert into Booking(" +
                 "bookingId, bookingDate, duration, numOfParticipants, customerId," +
-                ") values('" +
+                "activityId, instructor, notes) " +
+                "" +
+                "values('" +
                 bookingModel.getBookingID() + "', '" +
+                bookingModel.getDate() + "', '" +
                 bookingModel.getActivity().getDuration() + "', '" +
-                bookingModel.getMinAge() + "', '" +
-                bookingModel.getMinHeightCm() + "', '" +
-                bookingModel.getPrice() +  "')";
+                1 + "', '" +
+                bookingModel.getUser().getID() + "', '" +
+                bookingModel.getActivity().getId() + "', '" +
+                "Henning" + "', '" +
+                "Det her er en note HAhaa glhf" +  "')";
 
         jdbc.execute(sql);
     }
 
-    public void update(ActivityModel activityModel, int id) {
-        sql = "update Activity set name = '" +
-                activityModel.getName() + "', duration = '" +
-                activityModel.getDuration() + "', minAge = '" +
-                activityModel.getMinAge() + "', minHeight = '" +
-                activityModel.getMinHeightCm() + "', price = '" +
-                activityModel.getPrice() +
-                "' where activityId = " + id;
-
-        jdbc.update(sql);
-    }
+//    public void update(ActivityModel activityModel, int id) {
+//        sql = "update Activity set name = '" +
+//                activityModel.getName() + "', duration = '" +
+//                activityModel.getDuration() + "', minAge = '" +
+//                activityModel.getMinAge() + "', minHeight = '" +
+//                activityModel.getMinHeightCm() + "', price = '" +
+//                activityModel.getPrice() +
+//                "' where activityId = " + id;
+//
+//        jdbc.update(sql);
+//    }
 
     public void deleteActivity(int id) {
-        sql = "delete from Activity where activityId = " + id;
+        sql = "delete from Booking where bookingId = " + id;
 
         jdbc.update(sql);
     }
 
-    public ActivityModel getSpecificActivityModelBasedOnId(int id) {
-        String sqlQuery = "SELECT * FROM Activity WHERE activityId = " + id + ";";
+    public BookingModel getSpecificActivityModelBasedOnId(int id) {
+        String sqlQuery = "SELECT * FROM Booking WHERE customerId = " + id + ";";
         SqlRowSet rowSet = jdbc.queryForRowSet(sqlQuery);
 
         rowSet.next();
-        ActivityModel activityModel = new ActivityModel(rowSet.getInt(1), rowSet.getString(2), rowSet.getInt(3),
-                rowSet.getInt(4), rowSet.getInt(5), rowSet.getFloat(6));
-        return activityModel;
+        BookingModel bookingModel = new BookingModel(rowSet.getInt(1), new CustomerModel(rowSet.getInt(5).toString()), rowSet.getInt(6),
+                rowSet.getDate(2));
+        return bookingModel;
     }
 }
